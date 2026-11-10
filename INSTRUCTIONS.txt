@@ -1,0 +1,34 @@
+MISE À JOUR 0.3.0 — DÉTAIL ET CRUD DES PROJETS
+
+Cette mise à jour ajoute la page de détail d'un projet et relie la liste à cette page.
+Les endpoints backend PATCH et DELETE sont déjà présents dans la version 0.2.0 installée.
+
+FICHIERS À COPIER (en conservant l'arborescence) :
+1. frontend/app/projects/page.tsx  (remplacer)
+2. frontend/app/projects/[id]/page.tsx (nouveau fichier)
+
+CSS :
+3. Ouvre frontend/app/globals.css.
+4. Ajoute le contenu de frontend/app/detail-project-styles.css.txt tout à la fin.
+   IMPORTANT : ne remplace PAS globals.css par ce fichier CSS complémentaire.
+
+DÉMARRAGE :
+- Garde le backend ouvert.
+- Dans le terminal frontend, arrête Next.js avec Ctrl+C.
+- Ajoute le PATH Node dans CE terminal :
+  $env:Path = "C:\Program Files\nodejs;$env:Path"
+- Redémarre :
+  & "C:\Program Files\nodejs\npm.cmd" run dev
+
+TESTS :
+1. Ouvre http://localhost:3000/projects
+2. Clique sur un projet : la page /projects/<id> doit s'ouvrir.
+3. Clique sur Modifier, change le nom ou la description, puis Enregistrer.
+4. Reviens à Mes projets : le changement doit apparaître.
+5. Teste Supprimer sur un projet de test uniquement ; une confirmation est demandée.
+6. Vérifie que la suppression persiste après rechargement.
+
+NOTE :
+- Cette version suppose que la mise à jour persistance 0.2.0 est installée (API GET/PATCH/DELETE et SQLite).
+- La suppression est définitive dans la base locale.
+- Les assistants, sources et workflows sont des emplacements de préparation, pas encore des fonctions actives.
