@@ -4,11 +4,11 @@
 Python 3.11+, Node.js 20+, npm. Docker Compose est facultatif.
 
 ## Démarrage local
-1. Copier `.env.example` vers `.env`, définir un `APP_SECRET` aléatoire (minimum 32 caractères recommandé), puis remplir `OPENAI_API_KEY` si nécessaire.
+1. Définir les variables d’environnement du fichier `env.example` dans votre shell ou dans un fichier local `.env` (ce fichier local ne doit jamais être commité). Générer un `APP_SECRET` aléatoire d’au moins 32 caractères; ajouter `OPENAI_API_KEY` seulement si vous utilisez le fournisseur OpenAI.
 2. API : `cd backend && python -m venv .venv && . .venv/bin/activate && pip install -e '.[dev]' && uvicorn app.main:app --reload`.
 3. Frontend : `cd frontend && npm install && npm run dev`.
 4. API interactive : http://localhost:8000/docs. Interface : http://localhost:3000.
-La base SQLite est créée automatiquement. Pour Docker : `docker compose up --build` après création du fichier .env.
+La base SQLite est créée automatiquement. Pour Docker, créer le fichier .env local à partir des variables listées puis exécuter `docker compose up --build`.
 
 ## Flux API
 Créer un compte via POST /auth/register (email en paramètre), puis envoyer le jeton Bearer. Créer un projet, un assistant et charger des fichiers .txt/.md/.csv (2 Mo max). Déployer avec POST /assistants/{id}/deployments, mode public/authenticated/invitation/signed. Le résultat fournit le slug et, selon le mode, le code d’invitation ou le secret d’identité. Signer l’identité avec HMAC-SHA256 du texte de l’identité. Le widget se charge avec `<script src=".../universal-ai.js" data-api="..." data-slug="..."></script>`.
