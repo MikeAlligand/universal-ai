@@ -4,7 +4,7 @@ Version 0.17.0 — plateforme locale et modulaire pour assistants IA, bases de c
 
 ## État actuel — version 0.17.0
 
-La version 0.17 inclut l’Assistant Studio et Agent Orchestra : mission, responsabilités, limites et règles de transfert des assistants sont persistées par migration Alembic. La page Orchestra cartographie ces rôles; elle ne réalise pas de transfert automatique. Les workflows persistés sont disponibles via l’API, sans moteur de planification/arbitrage multi-agent complet. L’historique des versions et les scénarios de recette sont conservés dans les fichiers `MISE_A_JOUR_*.md` et `SCENARIO_TEST_*.md`.
+La version 0.17 inclut l’Assistant Studio et Agent Orchestra : mission, responsabilités, limites et règles de transfert des assistants sont persistées par migration Alembic. Agent Orchestra cartographie les rôles et l’interface permet aussi de créer et lancer des workflows séquentiels d’assistants, avec récupération des sources autorisées de chaque assistant. Le moteur ne fournit pas encore d’arbitrage multi-agent, de reprise après échec ni de journal d’exécution persistant. L’historique des versions et les scénarios de recette sont conservés dans les fichiers `MISE_A_JOUR_*.md` et `SCENARIO_TEST_*.md`.
 
 ## Included in this starter
 
