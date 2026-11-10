@@ -1,26 +1,20 @@
 # Universal AI Platform
 
-Plateforme SaaS modulaire de création, configuration et déploiement d'assistants IA et de chatbots.
+Plateforme modulaire pour créer, enrichir, orchestrer et déployer des assistants IA.
 
-## Objectif
+## Composants
+- `backend/` : API FastAPI, comptes, projets, assistants, documents/RAG lexical, chat, workflows et déploiements.
+- `frontend/` : interface d’accueil Next.js + TypeScript.
+- `widget/` : widget JavaScript à intégrer avec une URL de chatbot.
+- `demo-client-site/` : exemple d’intégration.
+- `docs/CONFIGURATION.md` : installation, configuration, flux API et limites.
 
-Permettre de créer des assistants IA connectés à des sources de données, de les orchestrer et de les déployer sous forme de chatbots hébergés ou intégrables sur des sites tiers.
+## Démarrer
+Consulter [docs/CONFIGURATION.md](docs/CONFIGURATION.md). La documentation OpenAPI est servie sur `/docs`. Aucun secret n’est inclus; utiliser les variables documentées dans `env.example`.
 
-## Architecture cible
+## Vérifications
+Backend : `cd backend && pip install -e '.[dev]' && pytest`.
+Frontend : `cd frontend && npm install && npm test && npm run typecheck && npm run build`.
 
-- `backend/` — API Python / FastAPI, authentification, assistants, RAG, déploiements et workflows.
-- `frontend/` — interface Next.js / TypeScript.
-- `demo-client-site/` — site de démonstration pour tester le widget.
-- `docs/` — architecture, installation, exploitation et décisions techniques.
-- `scripts/` — tests et outils de développement.
-
-## Principes
-
-- `main` est réservée aux versions stables.
-- Les évolutions sont développées sur des branches dédiées et intégrées par Pull Request.
-- Les tests backend et frontend doivent être exécutés avant fusion.
-- Les secrets, fichiers `.env`, bases de données locales, environnements virtuels et dépendances générées ne doivent jamais être versionnés.
-
-## État du dépôt
-
-Initialisation du dépôt distant. Le code source applicatif sera ajouté après synchronisation du projet local.
+## Statut et limites
+Première version fonctionnelle orientée démonstration. Elle utilise SQLite, une recherche lexicale sans embeddings, un adaptateur OpenAI compatible et des workflows synchrones. Lire la section sécurité et limites de la documentation avant tout déploiement public.
